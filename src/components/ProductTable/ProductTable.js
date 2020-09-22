@@ -15,30 +15,39 @@ const ProductTable = ({ loadData, orderData}) => {
     }, [loadData])
     
     useEffect(() => {
-        const progress = orderData.filter( order => order.status.code === 1 || order.status.code === 2 )
-        const complete = orderData.filter( order => order.status.code === 3 || order.status.code === 4 )
+        console.log('order data', orderData)
+
+        const sortData = orderData.sort((a, b) => {
+            var dateA = new Date(a.date);
+            var dateB = new Date(b.date);
+            console.log('date', dateA, dateB)
+            return dateB - dateA;
+        })
+        console.log('sort data', sortData)
+
+        const progress = sortData.filter( sort => sort.status.code === 1 || sort.status.code === 2 )
+        const complete = sortData.filter( sort => sort.status.code === 3 || sort.status.code === 4 )
         setCompleteData(complete);
         setProcessData(progress)
     },[orderData])
 
+    
 
-    console.log('order data', processData)
     return (
         <div className="container"> 
             <div>
-                <div  className="table-head">進行中</div>
+                <div className="table-head"><span>進行中</span></div>
                 {loading?<div>runn</div>: (
-                    processData.map(data => (
-                        <ProductCard order={data}/>)
+                    processData.map((data, i) => (
+                        <ProductCard key={i} order={data}/>)
                     )
                 )}
             </div>
-            
             <div >
-                <div className="table-head">已完成</div>
+                <div className="table-head"><span>已完成</span></div>
                 {loading?<div>runn</div>: (
-                    completeData.map(data => (
-                        <ProductCard order={data}/>)
+                    completeData.map((data, i) => (
+                        <ProductCard key={i} order={data}/>)
                     )
                 )}
             </div>
@@ -48,7 +57,7 @@ const ProductTable = ({ loadData, orderData}) => {
 
 ProductTable.propTypes = {
     loadData: PropTypes.func.isRequired,
-    orderData: PropTypes.object.isRequired
+    orderData: PropTypes.array.isRequired
 }
 
 const mapStateToProps = state => ({

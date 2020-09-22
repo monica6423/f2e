@@ -4,4 +4,19 @@
 .table-head {
     background-color: $main;
     height: 100%;
+    padding: .7rem;
+    border: 1px solid #E5E5E5;
+    span {
+        position: relative;
+        margin-left: 2rem;
+        &::before {
+            position: absolute;
+            content: '';
+            top: 1px;
+            left: -.7rem;
+            border-right: 4px solid #46B035;
+            height: 88%;
+
+        }
+    }
 }

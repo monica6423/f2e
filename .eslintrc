@@ -1,0 +1,32 @@
+{
+    "extends": [
+      "airbnb-base",
+      "eslint:recommended",
+      "plugin:flowtype/recommended",
+      "plugin:react/recommended",
+      "plugin:security/recommended"
+    ],
+    "plugins": [
+      "react",
+      "security"
+    ],
+    "settings": {
+      "react": {
+        "version": "latest"
+      }
+    },
+    "env": {
+      "browser": true,
+      "node": true
+    },
+    "rules": {
+      "max-len": ["error", { "code": 120 }],
+      "no-var": "error",
+      "semi": [2, "always"],
+      "quotes": [2, "single"],
+      "arrow-body-style": ["error", "always"],
+      "comma-dangle": ["error", "never"],
+      "no-unused-vars": ["error", { "args": "none" }],
+      "no-console": 0
+    }
+  }
