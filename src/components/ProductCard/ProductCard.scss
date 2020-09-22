@@ -1,0 +1,22 @@
+@import '../common.scss';
+
+.card {
+    border: $main;
+    display: flex;
+    border: 1px solid black;
+
+    .logo {
+        border: 1px solid blue;
+        img {
+            width: 100px;
+        }
+    }
+
+    .detail {
+        border: 1px solid green;
+    }
+
+    .arrow {
+        border: 1px solid orange;
+    }
+}
