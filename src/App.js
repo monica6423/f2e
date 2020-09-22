@@ -1,5 +1,4 @@
 import React from 'react';
-import logo from './logo.svg';
 import { Provider} from 'react-redux'
 import ProductTable from './components/ProductTable/ProductTable'
 import store from './store';
@@ -8,7 +7,7 @@ function App() {
   return (
     <Provider store={store}>
       <div className="App">
-      <ProductTable/>
+        <ProductTable/>
       </div>
     </Provider>
   );
