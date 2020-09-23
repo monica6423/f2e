@@ -1,9 +1,10 @@
 $main: #F5F5F5;
+$border: #E5E5E5;
 
 .container {
     width: 500px;
     margin: 2rem auto;
-    border: 1px solid #E5E5E5;
+    border: 1px solid $border;
 }
 
 @mixin alignCenter {
